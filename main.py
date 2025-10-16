@@ -28,10 +28,19 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
+        # Handle input
         engine.handle_input()
+
+        # Update game state (ball movement, scoring, AI)
         engine.update()
+
+        # Render everything (ball, paddles, score)
         engine.render(SCREEN)
 
+        # ✅ Check for game over (display winner and close)
+        engine.check_game_over(SCREEN)
+
+        # Update display and control FPS
         pygame.display.flip()
         clock.tick(FPS)
 
